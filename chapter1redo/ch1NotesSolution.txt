@@ -1,0 +1,73 @@
+11:04
+
+1) Create a user called arvind_aws_code_commit
+2) Attach a policy called CodeCommitPowerRepositories.
+3) create access keys,  ssh and https authentication for arvind_aws_code_commit
+4) Configure local machine to use ssh account. 
+5) create a git repo (first-repo) with index.html file in it. 
+6) use ssh to create modifiy files in it. 
+7) Clone the repository of your choice from git into it. 
+
+
+https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/clone-repo
+Solution.
+
+
+Do the above using command line and cloudformation.
+1) Do the above using the 
+I used cloudformation template to create the user. 
+createuser.yaml
+
+2) create ssh and https authentication for arvind_aws_code_commit
+access key:
+aws iam create-access-key  --user-name arvind_aws_code_commit --query 'AccessKey.{Name : UserName, "AccessKey" : AccessKeyId ,"SecretKey": SecretAccessKey}' > accesskeys.txt
+
+ssh key:
+aws iam upload-ssh-public-key --user-name arvind_aws_code_commit --ssh-public-key-body "$(cat ./id_rsa.pub)"
+
+
+3) 
+ https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/my-clone-repo 
+
+
+
+https authentication:
+git clone https://github.com/apulijala/python-project.git --mirror
+ssh git-codecommit.eu-west-2.amazonaws.com
+git push https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/my-clone-repo --all
+~                                                                                      
+
+
+Common Problems and eerors. 
+needed to fix autocompleter again. 
+complete -C "/usr/local/bin/aws_completer" aws
+
+
+Error parsing parameter '--parameters': Invalid JSON: Expecting property name 
+enclosed in double quotes: line 1 column 2 (char 1)
+
+JSON received: {
+{
+    "Parameters": [
+        {
+            "ParameterKey": "GroupName",
+            "DefaultValue": "mycodecommitpowerusers"
+        },
+        {
+            "ParameterKey": "Password",
+            "DefaultValue": "Dattatreya2!"
+        }
+    ]
+}
+this will cause problem. 
+should be. 
+
+2) 
+if incorrect credentials you will get invalid token error.
+this is for incorrect credentials.
+An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation.
+
+
+
+
+

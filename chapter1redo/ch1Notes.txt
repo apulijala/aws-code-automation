@@ -1,0 +1,11 @@
+11:04
+
+1) Create a user called arvind_aws_code_commit
+2) Attach a policy called CodeCommitPowerRepositories.
+3) create ssh authentication for arvind_aws_code_commit
+4) Configure local machine to use ssh account. 
+5) create a git repo (first-repo) with index.html file in it. 
+6) use ssh to create modifiy files in it. 
+7) Clone the repository of your choice from git into it. 
+
+Do the above using command line and cloudformation.

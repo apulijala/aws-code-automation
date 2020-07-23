@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: ./javawebapp.war
+    destination: /opt/apache-tomcat-8.5.57/webapps/
+hooks:
+  BeforeInstall:
+    - location: ./stop_server.sh 
+      runas: root
+  AfterInstall:
+    - location: ./start-server.sh
+      runas: root

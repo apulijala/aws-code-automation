@@ -1,0 +1,15 @@
+[
+    {
+        "ParameterKey": "GroupName",
+        "ParameterValue": "mycodecommitpowerusers"
+    },
+    {
+        "ParameterKey": "Password",
+        "ParameterValue": "Dattatreya2!"
+    },
+    {
+        "ParameterKey": "UserName",
+        "ParameterValue": "arvind_aws_code_commit"
+    }
+]
+

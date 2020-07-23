@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Master stack: PathToMasterStackFile'
+
+Parameters:
+  UserName: 
+    Description: "Enter User Name"
+    Type: String
+  Password:
+    Default: Dattatreya2!
+    Description: "Enter Password"
+    NoEcho: true
+    Type: String
+  GroupName:
+    Default: codecommitpowerusers
+    Description: "Enter Group Name"
+    NoEcho: true
+    Type: String
+
+
+Resources:
+
+  codeCommitGroup:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: !Ref GroupName
+      Path: /
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AWSCodeCommitPowerUser
+
+  iamUser:
+    Type: AWS::IAM::User
+    Properties:
+      Path: /
+      Groups:
+        - !Ref codeCommitGroup
+      UserName: !Ref UserName
+      LoginProfile:
+        Password: !Ref Password
+        PasswordResetRequired: false
+      
+
+
+Outputs:
+  UserArn:
+    Description: "Arn of the user created"
+    Value: !GetAtt [codeCommitGroup, Arn ]

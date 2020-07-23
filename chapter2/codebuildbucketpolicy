@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:DeleteSubscriptionFilter",
+                "logs:DeleteLogStream",
+                "logs:CreateExportTask",
+                "logs:DeleteResourcePolicy",
+                "logs:CreateLogStream",
+                "logs:DeleteMetricFilter",
+                "logs:TagLogGroup",
+                "logs:CancelExportTask",
+                "logs:DeleteRetentionPolicy",
+                "logs:DeleteLogDelivery",
+                "logs:AssociateKmsKey",
+                "logs:PutDestination",
+                "logs:DisassociateKmsKey",
+                "logs:UntagLogGroup",
+                "logs:DeleteLogGroup",
+                "logs:PutDestinationPolicy",
+                "codecommit:GitPull",
+                "logs:DeleteDestination",
+                "logs:PutLogEvents",
+                "logs:CreateLogGroup",
+                "logs:PutMetricFilter",
+                "logs:CreateLogDelivery",
+                "s3:PutObject",
+                "s3:GetObject",
+                "logs:PutResourcePolicy",
+                "logs:UpdateLogDelivery",
+                "logs:PutSubscriptionFilter",
+                "logs:PutRetentionPolicy",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": "*"
+        }
+    ]

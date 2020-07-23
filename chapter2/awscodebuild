@@ -1,0 +1,179 @@
+) 
+
+AWS COde Build Notes. 
+a) Bucket Policy needs to be set to allow the deployment  onto the bucket. either at the iam end or on the Bucket end
+b) 
+
+Build a nodejs application in yum container.
+
+First install nodejs in centos container.
+https://rpm.nodesource.com/setup_6.x execute this script.
+install nodejs, gcc, c++, make
+
+yum install -y epel-release
+
+Install yarn and verify.
+https://dl.yarnpkg.com/rpm/yarn.repo  yum repo needs to be configured from this url.
+
+rest can be in git repo.
+yarn init 
+
+source code. 
+
+pre install step.
+curl https://rpm.nodesource.com/setup_6.x |  bash -
+yum install -y nodejs, gcc, c++, make
+yum install -y nodejs
+
+
+
+package.json needs to be here.
+
+
+curl https://rpm.nodesource.com/setup_6.x |  bash -
+yum install -y epel-release
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install  -y nodejs, gcc, c++, make
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo
+yarn build
+yum install -y yarn
+tar zxvf example-node-server-v1.0.0.tgz
+/ 
+    package.json
+    -- lib
+    -- test
+      
+yarn build      
+      
+package.json
+
+{
+ "name": "example-node-server",
+ "version": "1.0.0",
+ "description": "sample nodejs webapp",
+ "main": "lib/index.js",
+"scripts": {
+ "start": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
+ "build": "babel lib -d dist",
+ "serve": "node dist/index.js",
+ "test": "mocha --compilers js:babel-register"
+ },
+"author": "Nikit Swaraj",
+"license": "MIT",
+"devDependencies": {
+ "babel-cli": "^6.24.1",
+ "babel-preset-es2015": "^6.24.1",
+ "babel-preset-stage-2": "^6.24.1",
+ "babel-register": "^6.11.6",
+ "mocha": "^3.0.1",
+ "nodemon": "^1.11.0"
+ }
+}
+
+lib/index.js
+
+import http from 'http';
+http.createServer((req, res) => {
+ res.writeHead(200, {'Content-Type': 'text/plain'});
+ res.end('Hello AWSSTAR\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+
+      
+test/index.test.js
+import http from 'http';
+import assert from 'assert';
+import '../lib/index.js';
+describe('Example Node Server', () => {
+ it('should return 200', done => {
+ http.get('http://127.0.0.1:1337', res => {
+ assert.equal(200, res.statusCode);
+ done();
+ });
+ });
+});      
+
+
+pre build steps.
+curl https://rpm.nodesource.com/setup_6.x |  bash -
+yum install -y epel-release
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install  -y nodejs, gcc, c++, make
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo
+yum install -y yarn
+
+
+Build steps. 
+
+ yarn pack --filename mytest.tar.gz
+ 
+ 
+ 
+ 
+ docs.aws.amazon.com
+ 
+ On the machine 
+ add a user called devops
+ Open the file /etc/ssh/sshd_config
+ PasswordAuthenciation yes.
+ restart sshd.
+ 
+ 
+ 
+ create user on ec2. 
+ 
+ 
+ Requirement. 
+ centos 7
+ size = min
+ install musql-server, wget, unzip
+ mysql-server running.
+ mysql-server data => 50 gigs
+ 
+ create a volume
+ attach ec2 instance
+ partition it.
+ format it. 
+ mount it 
+ 
+ fdisk /dev/xvdf
+ n
+ p
+ 1
+ +3G
+ 
+ 
+ create a [artopm amd ,pimt ot/ 
+ 
+ mount /dev/xvdf1  /var/lib/mysql
+ 
+ 
+ 
+ 
+ connect will tell which user it is initally.
+ 
+sudo useradd --password $(openssl passwd hello) alpha
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      
+      
+
+

@@ -1,0 +1,9 @@
+*/.git
+*target*
+*id_rsa*
+*.pem*
+apache-tomcat-8.5.57/*
+*apache-tomcat-8.5.57.tar.gz*
+credentials
+*node_modules*
+clone-repo

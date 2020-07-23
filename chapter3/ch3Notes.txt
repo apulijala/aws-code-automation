@@ -1,0 +1,8 @@
+What are the benifits of automated deployments?
+
+2) What are the automated tools available?
+
+3) What are the beneifts of aws code deploy?
+
+
+

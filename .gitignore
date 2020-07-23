@@ -1,0 +1,17 @@
+*/.git
+*target*
+*id_rsa*
+*.pem*
+apache-tomcat-8.5.57/*
+*apache-tomcat-8.5.57.tar.gz*
+credentials
+*node_modules*
+clone-repo
+*guru-datta-repository*
+*python-crash-course.git*
+*hello-world*
+*NodeApp.zip*
+*AndrewApp.zip*
+*python-project.git*
+*id_rs*
+*awsinaction.pem*

@@ -1,0 +1,13 @@
+{
+    "repositoryMetadata": {
+        "accountId": "162855553133",
+        "repositoryId": "6c3f41e4-031b-4dd0-a154-39c276318d52",
+        "repositoryName": "nodejs",
+        "lastModifiedDate": "2020-07-16T20:48:13.496000+01:00",
+        "creationDate": "2020-07-16T20:48:13.496000+01:00",
+        "cloneUrlHttp": "https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/nodejs",
+        "cloneUrlSsh": "ssh://git-codecommit.eu-west-2.amazonaws.com/v1/repos/nodejs",
+        "Arn": "arn:aws:codecommit:eu-west-2:162855553133:nodejs"
+    }
+}
+

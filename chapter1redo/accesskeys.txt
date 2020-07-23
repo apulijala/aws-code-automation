@@ -1,0 +1,5 @@
+{
+    "Name": "arvind_aws_code_commit",
+    "AccessKey": "AKIASL2XSRBW6QA5PDNS",
+    "SecretKey": "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"
+}

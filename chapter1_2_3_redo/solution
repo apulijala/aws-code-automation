@@ -1,0 +1,200 @@
+1) use efs-utils to mount the file system. 
+2) do ec2-image builder to create an image.
+3) then create an image out of it.
+arn:aws:s3:::cp-statapp-arvind/*
+
+Mastering Git
+
+Tasks:
+
+1) Create a repository called HelloWorld with index.html in it.
+Then create HTTP credentials for the user and SSH credentials for user learnawspipeline
+test it by checking out the file and checking it in.
+
+1) 
+a) Create a user in IAM.
+b) 
+Create a group
+aws iam create-group --group-name awscodecommitaccess
+Attach a policy to the group.
+aws iam attach-group-policy --group-name awscodecommitaccess --policy-arn arn:aws:iam::aws:policy/AWSCodeCommitFullAccess
+Add the completer.
+complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
+Add user to the group.
+aws iam create-user --user-name learnawspipeline
+
+Create a repository.
+aws codecommit create-repository --repository-name helloworld
+
+Created ~/.ssh/config 
+
+Host git-codecommit.*.amazonaws.com
+  User  APKASL2XSRBW4EXJF2M5
+  IdentityFile /home/arvind/aws-code-automation/chapter1_2_3_redo/id_rsa
+
+repo=$(aws codecommit get-repository --repository-name helloworld --query "repositoryMetadata.cloneUrlSsh" --output text)
+git clone ssh://git-codecommit.eu-west-2.amazonaws.com/v1/repos/helloworld
+echo "<h1> Jaya Guru Datta, Sree Guru Datta </h1>" >> index.html
+
+Completed the push to the git repository
+git clone ssh://git-codecommit.eu-west-2.amazonaws.com/v1/repos/helloworld
+echo "<h1> Jaya Guru Datta, Sree Guru Datta </h1>" >> index.html
+git status
+git add .
+git commit -m "created index html file"
+git push
+
+Mirror a repository
+
+2) 
+Do it with command line and with Gui.
+Delete the repository after you are done.
+
+3) Create a policy called HelloWorldPolicy and only allow pull and push from git
+on a Resource.
+
+
+4) Create a repository called HellWorld2 in github and mirror the repository into AWSCodeCommit.
+Created a ssh key and uploaded to git.
+
+to my git.
+ssh -i id_rsa_git -T git@github.com (Authenticate)
+ssh-add ./id_rsa_git You need to add to ssh agent. this is for future commands.
+ 
+ 
+
+5) 
+git clone --mirror git@github.com:apulijala/hello-world-3.git codecommit
+cd codecommit/
+repo=$(aws codecommit get-repository --repository-name helloworld --query "repositoryMetadata.cloneUrlSsh" --output text)
+git push $repo --all
+                          
+
+
+Building an Application using CodeBuild
+
+1) Create a maven project usign the command line using
+maven-archetype-webapp and deploy it to tomcat and test it.
+Used docker for the solution.
+
+First enabeld docker as non root user.
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
+docker run hello-world
+
+
+Now running t
+
+
+
+2) 
+
+Building a NodeJS application using yarn
+------------------------------------------
+install nodejs and yarn on an ec2 instance.
+Write a simple hello world application and test it.
+
+node code is.
+import http from 'http';
+import assert from 'assert';
+import '../lib/index.js';
+describe('Example Node Server', () => {
+ it('should return 200', done => {
+ http.get('http://127.0.0.1:1337', res => {
+ assert.equal(200, res.statusCode);
+ done();
+ });
+ });
+});
+
+Test case is.
+
+import http from 'http';
+import assert from 'assert';
+import '../lib/index.js';
+describe('Example Node Server', () => {
+ it('should return 200', done => {
+ http.get('http://127.0.0.1:1337', res => {
+ assert.equal(200, res.statusCode);
+ done();
+ });
+ });
+});
+
+
+package.json is here.
+{
+ "name": "example-node-server",
+ "version": "1.0.0",
+ "description": "sample nodejs webapp",
+ "main": "lib/index.js",
+"scripts": {
+ "start": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
+ "build": "babel lib -d dist",
+ "serve": "node dist/index.js",
+ "test": "mocha --compilers js:babel-register"
+ },
+"author": "Nikit Swaraj",
+"license": "MIT",
+"devDependencies": {
+ "babel-cli": "^6.24.1",
+ "babel-preset-es2015": "^6.24.1",
+ "babel-preset-stage-2": "^6.24.1",
+ "babel-register": "^6.11.6",
+ "mocha": "^3.0.1",
+ "nodemon": "^1.11.0"
+ }
+}
+
+
+Do a yarn init and put the code there.
+Figure out how to install, build and serve the application.
+
+
+Do the same using the code build console. Check the code into git repositories.
+Building a Maven application using AWS CodeBuild console
+
+
+Build both the above projects using code build console. try to use buildspec file.
+
+
+Deploying Application using CodeDeploy & CodePipeline
+-----------------------------------------------------
+Deploy both the above applications using CodeDeploy.
+
+
+
+
+
+Introducing AWS CodePipeline and its working
+----------------------------------------------
+Set up a simple page in git repos and deploy it using code pipeline.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example with starter code.
+For each aws subsystem.
