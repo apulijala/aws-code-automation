@@ -1,4 +1,5 @@
 #!/bin/bash -ex
+# New way of mount EFS Drive according to AWS specification
 
 result=$(sudo cat /etc/os-release  | head -1 | awk -F = '{print $2}' | sed -E 's/"//g' )
 if [[ "$result" =~ [Cc]entos  ]]
